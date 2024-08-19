@@ -8,6 +8,7 @@ import {
     GetThreadsParams,
     PublishingLimitResponse,
     UserThreadsResponse,
+    UserRepliesResponse,
 } from './types';
 
 export class User extends BaseResource {
@@ -64,6 +65,35 @@ export class User extends BaseResource {
 
         if (response.statusCode === 200) {
             return response.body as UserThreadsResponse;
+        } else {
+            throw new Error((response.body as ErrorResponse).error.message);
+        }
+    };
+
+    /**
+     * Retrieve a paginated list of all Threads posts created by a user.
+     * @param params
+     * @returns
+     */
+    public getUserReplies = async (params: GetThreadsParams): Promise<UserRepliesResponse> => {
+        const { accessToken, threadsUserId, fields, since, until, limit, before, after } = params;
+
+        const queryParams = {
+            access_token: accessToken,
+            ...(fields ? { fields: fields.join(',') } : {}),
+            ...(since ? { since: since.toString() } : {}),
+            ...(until ? { until: until.toString() } : {}),
+            ...(limit ? { limit: limit.toString() } : {}),
+            ...(before ? { before } : {}),
+            ...(after ? { after } : {}),
+        };
+
+        const getUserRepliesUrl = this.buildGraphApiUrl(`${threadsUserId}/replies`, queryParams);
+
+        const response = await got.get(getUserRepliesUrl, { responseType: 'json', throwHttpErrors: false });
+
+        if (response.statusCode === 200) {
+            return response.body as UserRepliesResponse;
         } else {
             throw new Error((response.body as ErrorResponse).error.message);
         }

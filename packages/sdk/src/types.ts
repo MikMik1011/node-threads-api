@@ -49,6 +49,7 @@ export interface ProfileResponse {
 
 enum ProfileFieldsEnum {
     ID = 'id',
+    NAME = 'name',
     USERNAME = 'username',
     BIOGRAPHY = 'threads_biography',
     PROFILE_PICTURE = 'threads_profile_picture_url',
@@ -66,6 +67,7 @@ export interface GetUserInsightsParams {
     metric: string;
     since?: string;
     until?: string;
+    breakdown?: 'country' | 'city' | 'age' | 'gender';
 }
 
 export interface UserInsightsResponse {
@@ -164,6 +166,39 @@ export interface ThreadData {
 
 export interface UserThreadsResponse {
     data: ThreadData[];
+    paging?: {
+        cursors?: {
+            before?: string;
+            after?: string;
+        };
+        next?: string;
+        previous?: string;
+    };
+}
+
+export interface ReplyData {
+    id: string;
+    media_product_type: string;
+    media_type: 'TEXT_POST' | 'IMAGE' | 'VIDEO' | 'CAROUSEL_ALBUM' | 'AUDIO';
+    media_url?: string;
+    permalink?: string;
+    username: string;
+    text?: string;
+    timestamp: string;
+    shortcode: string;
+    thumbnail_url?: string;
+    children?: ReplyData[];
+    is_quote_post?: boolean;
+    has_replies: boolean;
+    root_post?: { id: string };
+    replied_to?: { id: string };
+    is_reply: boolean;
+    is_reply_owned_by_me?: boolean;
+    reply_audience?: 'EVERYONE' | 'ACCOUNTS_YOU_FOLLOW' | 'MENTIONED_ONLY';
+}
+
+export interface UserRepliesResponse {
+    data: ReplyData[];
     paging?: {
         cursors?: {
             before?: string;

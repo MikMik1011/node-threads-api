@@ -19,7 +19,7 @@ export class Insights extends BaseResource {
      * @returns
      */
     public getUserInsights = async (params: GetUserInsightsParams): Promise<UserInsightsResponse> => {
-        const { accessToken, userId, metric, since, until } = params;
+        const { accessToken, userId, metric, since, until, breakdown } = params;
 
         const queryThreadUrl = this.buildGraphApiUrl(
             `${userId}/threads_insights`,
@@ -27,6 +27,7 @@ export class Insights extends BaseResource {
                 metric,
                 ...(since ? { since } : {}),
                 ...(until ? { until } : {}),
+                ...(breakdown ? {breakdown} : {}),
             },
             accessToken
         );
