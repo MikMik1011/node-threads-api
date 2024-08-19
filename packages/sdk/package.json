@@ -1,6 +1,6 @@
 {
     "name": "@mikmik1011/threads-api-wrapper",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "An updated fork of Mikescops's SDK to manage Threads API in Node.js",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
