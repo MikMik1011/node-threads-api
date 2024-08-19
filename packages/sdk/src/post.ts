@@ -14,11 +14,11 @@ export class Post extends BaseResource {
     }
 
     /**
-     * Retrieve profile information about a user on Threads.
+     * Retrieve information about a media object or a thread on Threads.
      * @param params
      * @returns
      */
-    public getMediaData = async (params: GetMediaParams): Promise<ThreadData> => {
+    public getMediaObject = async (params: GetMediaParams): Promise<ThreadData> => {
         const { accessToken, id, fields } = params;
 
         const getUserDetailsUrl = this.buildGraphApiUrl(

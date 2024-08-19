@@ -71,7 +71,7 @@ export class User extends BaseResource {
     };
 
     /**
-     * Retrieve a paginated list of all Threads posts created by a user.
+     * Retrieve a paginated list of all Threads replies created by a user.
      * @param params
      * @returns
      */
