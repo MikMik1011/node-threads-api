@@ -1,7 +1,7 @@
 {
-    "name": "threads-api-wrapper",
-    "version": "1.0.3",
-    "description": "A SDK to manage Threads API in Node.js",
+    "name": "@mikmik1011/threads-api-wrapper",
+    "version": "1.0.4",
+    "description": "An updated fork of Mikescops's SDK to manage Threads API in Node.js",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "type": "module",
@@ -9,7 +9,7 @@
         "dist",
         "README.md"
     ],
-    "repository": "github:Mikescops/node-threads-api",
+    "repository": "github:MikMik1011/node-threads-api",
     "scripts": {
         "build": "tsc",
         "start": "node dist/index.js"
@@ -23,9 +23,9 @@
         "meta"
     ],
     "author": {
-        "name": "Corentin Mors",
-        "email": "medias@pixelswap.fr",
-        "url": "https://pixelswap.fr/"
+        "name": "Corentin Mors & Misa Stefanovic",
+        "email": "contact@misa.st",
+        "url": "https://misa.st/"
     },
     "license": "MIT",
     "dependencies": {
