@@ -1,6 +1,7 @@
 import { BaseResource } from './base.js';
 import { User } from './user.js';
 import { Insights } from './insights.js';
+import { Post } from './post.js';
 
 export {
     AuthScopes,
@@ -15,11 +16,13 @@ export {
 const resources: Record<string, any> = {
     Insights,
     User,
+    Post
 };
 
 export interface ThreadsSDK extends BaseResource {
     Insights: Insights;
     User: User;
+    Post: Post;
     [key: string]: any; // Add an index signature to allow indexing with a string
 }
 

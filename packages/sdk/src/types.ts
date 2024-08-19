@@ -40,6 +40,12 @@ export interface GetProfileParams {
     fields: ProfileFields[];
 }
 
+export interface GetMediaParams {
+    accessToken: string;
+    id: string;
+    fields: ThreadsFields[];
+}
+
 export interface ProfileResponse {
     id: string;
     username: string;
