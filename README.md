@@ -41,18 +41,38 @@ const url = threadsApi.getAuthorizationUrl({
  * @returns
  */
 getUserProfile: (params: GetProfileParams) => Promise<ProfileResponse>;
+
 /**
  * Retrieve a paginated list of all Threads posts created by a user.
  * @param params
  * @returns
  */
 getUserThreads: (params: GetThreadsParams) => Promise<UserThreadsResponse>;
+
+/**
+ * Retrieve a paginated list of all Threads replies created by a user.
+ * @param params
+ * @returns
+ */
+getUserReplies: (params: GetThreadsParams) => Promise<UserRepliesResponse>;
+
 /**
  * Check the app user's current publishing rate limit usage.
  * @param params
  * @returns
  */
 getUserPublishingLimit: (params: GetPublishingLimitParams) => Promise<PublishingLimitResponse>;
+```
+
+### Post
+
+```typescript
+/**
+ * Retrieve information about a media object or a thread on Threads.
+ * @param params
+ * @returns
+ */
+getMediaObject: (params: GetMediaParams): => Promise<ThreadData>;
 ```
 
 ### Insights
@@ -75,5 +95,5 @@ getMediaInsights: (params: GetMediaInsightsParams) => Promise<MediaInsightsRespo
 ## Maintainers
 
 | [![twitter/mikescops](https://avatars0.githubusercontent.com/u/4266283?s=100&v=4)](https://pixelswap.fr 'Personal Website') | [![threads/mikmik_1011](https://avatars.githubusercontent.com/u/40996107?s=100&v=4)](https://misa.st 'Personal Website') |
-| ------- | ------- |
-| [Corentin Mors](https://pixelswap.fr/) | [Misa Stefanovic](https://misa.st/) |
+| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| [Corentin Mors](https://pixelswap.fr/)                                                                                      | [Misa Stefanovic](https://misa.st/)                                                                                      |
